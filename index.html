@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLSV Master Class - SMPN 1 Terusan Nunyai</title>
+    <title>PLSV Fun & Bright Class - SMPN 1 Terusan Nunyai</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts Inter & Fredoka / Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -18,25 +18,22 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
-                        },
-                        accent: {
-                            amber: '#f59e0b',
-                            emerald: '#10b981',
-                            purple: '#8b5cf6',
-                            rose: '#f43f5e'
+                        bright: {
+                            cyan: '#00F2FE',
+                            blue: '#4FACFE',
+                            teal: '#38EF7D',
+                            yellow: '#FFD200',
+                            orange: '#FF9900',
+                            pink: '#FF6B6B',
+                            coral: '#FF8E53',
+                            purple: '#7F00FF',
+                            magenta: '#E100FF',
+                            bg: '#F0F7FF'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
                     }
                 }
             }
@@ -45,185 +42,198 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f7ff 50%, #fae8ff 100%);
+            background-attachment: fixed;
+            color: #1e293b;
         }
         h1, h2, h3, h4, .font-display {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Fredoka', cursive, sans-serif;
         }
-        .glow-effect {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+        .soft-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
         }
-        .gameshow-gradient {
-            background: radial-gradient(circle, #1e1b4b 0%, #0f172a 100%);
+        .rainbow-gradient-bg {
+            background: linear-gradient(120deg, #FF6B6B 0%, #FFD200 35%, #38EF7D 70%, #00F2FE 100%);
         }
-        /* Custom Animation */
-        @keyframes pulse-slow {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+        .gameshow-bright-bg {
+            background: radial-gradient(circle, #2e1065 0%, #0f172a 100%);
         }
-        .animate-pulse-slow {
-            animation: pulse-slow 3s infinite ease-in-out;
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
-        /* Interactive Balance Scale */
+        .animate-bounce-gentle {
+            animation: bounce-gentle 2.5s infinite ease-in-out;
+        }
         .scale-beam {
             transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b-4 border-bright-yellow shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('dashboard')">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
-                        <i class="fa-solid fa-calculator"></i>
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-bright-pink via-bright-orange to-bright-yellow flex items-center justify-center text-white font-extrabold text-2xl shadow-lg shadow-bright-pink/30 transform hover:scale-105 transition">
+                        <i class="fa-solid fa-shapes"></i>
                     </div>
                     <div>
-                        <span class="text-lg font-bold font-display bg-clip-text text-transparent bg-gradient-to-r from-brand-700 to-indigo-700">PLSV Master</span>
-                        <span class="block text-xs font-medium text-slate-500">SMPN 1 Terusan Nunyai</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-bold font-display bg-clip-text text-transparent bg-gradient-to-r from-bright-purple via-bright-pink to-bright-orange">PLSV Fun</span>
+                            <span class="px-2 py-0.5 rounded-full bg-bright-yellow text-slate-900 text-[10px] font-black uppercase tracking-wider">Kelas 8</span>
+                        </div>
+                        <span class="block text-xs font-bold text-slate-500">SMP Negeri 1 Terusan Nunyai</span>
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1 font-medium text-sm">
-                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-4 py-2 rounded-lg text-brand-600 bg-brand-50 font-semibold transition">
+                <!-- Navigation Tabs (Desktop) -->
+                <div class="hidden lg:flex items-center space-x-2 font-bold text-sm">
+                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-4 py-2.5 rounded-2xl text-white bg-bright-blue shadow-md shadow-bright-blue/20 transition hover:scale-105">
                         <i class="fa-solid fa-house mr-1.5"></i> Beranda
                     </button>
-                    <button onclick="switchTab('tujuan')" id="nav-tujuan" class="nav-btn px-4 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition">
-                        <i class="fa-solid fa-bullseye mr-1.5"></i> Tujuan & CP
+                    <button onclick="switchTab('tujuan')" id="nav-tujuan" class="nav-btn px-4 py-2.5 rounded-2xl text-slate-700 hover:text-bright-purple hover:bg-purple-50 transition">
+                        <i class="fa-solid fa-bullseye mr-1.5 text-bright-pink"></i> Tujuan & CP
                     </button>
-                    <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn px-4 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition">
-                        <i class="fa-solid fa-book-open mr-1.5"></i> Materi Pembelajaran
+                    <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn px-4 py-2.5 rounded-2xl text-slate-700 hover:text-bright-blue hover:bg-sky-50 transition">
+                        <i class="fa-solid fa-book-open-reader mr-1.5 text-bright-blue"></i> Materi & Simulasi
                     </button>
-                    <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn px-4 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition">
-                        <i class="fa-solid fa-pen-to-square mr-1.5"></i> Kuis Interaktif
+                    <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn px-4 py-2.5 rounded-2xl text-slate-700 hover:text-bright-teal hover:bg-emerald-50 transition">
+                        <i class="fa-solid fa-pen-ruler mr-1.5 text-bright-teal"></i> Latihan & Kuis
                     </button>
-                    <button onclick="switchTab('gameshow')" id="nav-gameshow" class="nav-btn px-4 py-2 rounded-lg text-amber-600 bg-amber-50 hover:bg-amber-100 font-bold transition flex items-center shadow-sm">
-                        <i class="fa-solid fa-gamepad mr-1.5 animate-bounce"></i> Game Show TV
+                    <button onclick="switchTab('gameshow')" id="nav-gameshow" class="nav-btn px-5 py-2.5 rounded-2xl text-slate-950 bg-bright-yellow hover:bg-amber-300 font-extrabold shadow-md shadow-bright-yellow/40 transition transform hover:scale-105 animate-bounce-gentle flex items-center gap-2">
+                        <i class="fa-solid fa-tv text-bright-pink text-lg"></i> Game Show TV
                     </button>
                 </div>
 
-                <!-- Mobile menu button -->
-                <div class="flex items-center md:hidden">
-                    <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl"></i>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2.5 rounded-2xl bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
-            <button onclick="switchTab('dashboard'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Beranda</button>
-            <button onclick="switchTab('tujuan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Tujuan & CP</button>
-            <button onclick="switchTab('materi'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Materi Pembelajaran</button>
-            <button onclick="switchTab('kuis'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Kuis Interaktif</button>
-            <button onclick="switchTab('gameshow'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-amber-600 bg-amber-50">Game Show TV</button>
+        <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-slate-100 bg-white/95 px-4 pt-3 pb-5 space-y-2 font-bold">
+            <button onclick="switchTab('dashboard'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-2xl bg-sky-50 text-bright-blue">Beranda</button>
+            <button onclick="switchTab('tujuan'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-100 text-slate-700">Tujuan & CP</button>
+            <button onclick="switchTab('materi'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-100 text-slate-700">Materi & Simulasi</button>
+            <button onclick="switchTab('kuis'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-100 text-slate-700">Latihan & Kuis</button>
+            <button onclick="switchTab('gameshow'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-2xl bg-bright-yellow text-slate-950">Game Show TV PLSV</button>
         </div>
     </nav>
 
-    <!-- Main Content Containers -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <!-- TAB 1: DASHBOARD -->
+        <!-- TAB 1: DASHBOARD / BERANDA CERAH -->
         <section id="tab-dashboard" class="tab-content block space-y-8">
-            <!-- Hero Banner -->
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-800 via-brand-700 to-indigo-800 text-white p-8 sm:p-12 shadow-xl">
-                <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Hero Bright Banner -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-600 text-white p-8 sm:p-12 shadow-2xl border-4 border-white">
+                <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-bright-yellow/30 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute right-20 top-10 text-white/10 text-9xl font-black pointer-events-none select-none">x+b=c</div>
+
                 <div class="relative z-10 max-w-3xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-100 text-xs font-semibold backdrop-blur-md mb-4 border border-white/20">
-                        <i class="fa-solid fa-graduation-cap"></i> Media Pembelajaran Matematika Kelas VIII
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-amber-200 text-xs font-bold mb-4 border border-white/30 shadow-sm">
+                        <i class="fa-solid fa-sparkles"></i> Media Pembelajaran Matematika Ceria
                     </div>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight mb-4">
-                        Kuasai <span class="text-amber-300">Persamaan Linear Satu Variabel</span> Dengan Mudah & Fun!
+                    <h1 class="text-3xl sm:text-5xl font-black font-display leading-tight mb-4 drop-shadow-md">
+                        Belajar <span class="text-bright-yellow underline decoration-wavy decoration-bright-pink">PLSV Kelas 8</span> Jadi Lebih Seru & Asyik!
                     </h1>
-                    <p class="text-slate-200 text-base sm:text-lg mb-8 leading-relaxed">
-                        Selamat datang di portal pembelajaran digital interaktif. Belajar konsep PLSV, uji kesetaraan timbangan, hingga berkompetisi di Game Show TV bergengsi!
+                    <p class="text-sky-100 text-base sm:text-lg mb-8 font-medium leading-relaxed">
+                        Pahami konsep Persamaan Linear Satu Variabel dengan visual interaktif, simulasi timbangan digital, hingga berlaga di Panggung Game Show TV bergengsi!
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="switchTab('materi')" class="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-sm shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                            <i class="fa-solid fa-play"></i> Mulai Belajar Sekarang
+                        <button onclick="switchTab('materi')" class="px-7 py-4 rounded-2xl bg-bright-yellow hover:bg-amber-300 text-slate-950 font-extrabold text-base shadow-lg shadow-bright-yellow/40 transition transform hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fa-solid fa-rocket text-bright-pink text-xl"></i> Mulai Belajar Sekarang
                         </button>
-                        <button onclick="switchTab('gameshow')" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm backdrop-blur-md border border-white/20 transition flex items-center gap-2">
-                            <i class="fa-solid fa-trophy text-amber-300"></i> Mainkan Game Show
+                        <button onclick="switchTab('gameshow')" class="px-7 py-4 rounded-2xl bg-white/20 hover:bg-white/30 text-white font-extrabold text-base backdrop-blur-md border-2 border-white/40 shadow-md transition transform hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fa-solid fa-gamepad text-bright-yellow text-xl"></i> Main Game Show TV
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile & Info Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Quick Stats Row -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="soft-card rounded-2xl p-4 text-center border-b-4 border-bright-pink">
+                    <div class="text-2xl font-black font-display text-bright-pink">4 Modul</div>
+                    <div class="text-xs font-bold text-slate-500 mt-0.5">Sub-Materi Lengkap</div>
+                </div>
+                <div class="soft-card rounded-2xl p-4 text-center border-b-4 border-bright-blue">
+                    <div class="text-2xl font-black font-display text-bright-blue">Simulasi</div>
+                    <div class="text-xs font-bold text-slate-500 mt-0.5">Timbangan Digital</div>
+                </div>
+                <div class="soft-card rounded-2xl p-4 text-center border-b-4 border-bright-teal">
+                    <div class="text-2xl font-black font-display text-bright-teal">Kuis Instant</div>
+                    <div class="text-xs font-bold text-slate-500 mt-0.5">Feedback Pembahasan</div>
+                </div>
+                <div class="soft-card rounded-2xl p-4 text-center border-b-4 border-bright-yellow">
+                    <div class="text-2xl font-black font-display text-bright-orange">1 Juta Poin</div>
+                    <div class="text-xs font-bold text-slate-500 mt-0.5">Hadiah Game Show</div>
+                </div>
+            </div>
+
+            <!-- Profile Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Sekolah Info Card -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex items-start space-x-4">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600 text-2xl flex-shrink-0">
+                <div class="soft-card rounded-3xl p-6 flex items-center space-x-5 border-l-8 border-bright-blue">
+                    <div class="w-16 h-16 rounded-2xl bg-sky-100 flex items-center justify-center text-bright-blue text-3xl flex-shrink-0 shadow-inner">
                         <i class="fa-solid fa-school"></i>
                     </div>
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Instansi Sekolah</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display mt-0.5">SMP Negeri 1 Terusan Nunyai</h3>
-                        <p class="text-xs text-slate-500 mt-1">Kab. Lampung Tengah, Prov. Lampung</p>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-bright-blue">Instansi Sekolah</span>
+                        <h3 class="text-xl font-bold font-display text-slate-800 mt-0.5">SMP Negeri 1 Terusan Nunyai</h3>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Kabupaten Lampung Tengah, Provinsi Lampung</p>
                     </div>
                 </div>
 
                 <!-- Guru Info Card -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex items-start space-x-4">
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-2xl flex-shrink-0">
+                <div class="soft-card rounded-3xl p-6 flex items-center space-x-5 border-l-8 border-bright-purple">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center text-bright-purple text-3xl flex-shrink-0 shadow-inner">
                         <i class="fa-solid fa-user-tie"></i>
                     </div>
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Guru Pengampu</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display mt-0.5">Hardiansyah, S.Pd.</h3>
-                        <p class="text-xs text-slate-500 mt-1">Guru Mata Pelajaran Matematika</p>
-                    </div>
-                </div>
-
-                <!-- Modul Info Card -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition flex items-start space-x-4">
-                    <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 text-2xl flex-shrink-0">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Target Kurikulum</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display mt-0.5">Kurikulum Merdeka</h3>
-                        <p class="text-xs text-slate-500 mt-1">Kelas VIII / Semester Ganjil</p>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-bright-purple">Guru Pengampu</span>
+                        <h3 class="text-xl font-bold font-display text-slate-800 mt-0.5">Hardiansyah, S.Pd.</h3>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Pengajar Mata Pelajaran Matematika Kelas VIII</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Learning Module Overview Grid -->
+            <!-- Sub-Materi Overview Grid -->
             <div>
-                <h2 class="text-2xl font-bold font-display text-slate-900 mb-6 flex items-center gap-2">
-                    <i class="fa-solid fa-map-location-dot text-brand-600"></i> Alur Pembelajaran PLSV
+                <h2 class="text-2xl font-bold font-display text-slate-800 mb-6 flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-xl bg-bright-yellow text-slate-900 flex items-center justify-center text-base font-extrabold shadow-sm"><i class="fa-solid fa-map"></i></span> Alur Pembelajaran
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Step 1 -->
-                    <div onclick="openSubMateri(1)" class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-500 transition cursor-pointer shadow-sm hover:shadow-md group">
-                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition">1</div>
-                        <h4 class="font-bold font-display text-slate-800 group-hover:text-brand-600 transition">Konsep Dasar PLSV</h4>
-                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Mengenal variabel, koefisien, konstanta, dan ciri khas persamaan linear.</p>
+                    <div onclick="openSubMateri(1)" class="soft-card rounded-3xl p-6 border-2 border-transparent hover:border-bright-blue transition cursor-pointer group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-100 text-bright-blue font-extrabold font-display text-xl flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-inner">1</div>
+                        <h4 class="font-bold font-display text-lg text-slate-800 group-hover:text-bright-blue transition">Konsep Dasar PLSV</h4>
+                        <p class="text-xs text-slate-500 mt-2 font-medium leading-relaxed">Mengenal variabel, koefisien, konstanta, dan ciri khas bentuk linear.</p>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div onclick="openSubMateri(2)" class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-500 transition cursor-pointer shadow-sm hover:shadow-md group">
-                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition">2</div>
-                        <h4 class="font-bold font-display text-slate-800 group-hover:text-brand-600 transition">Kalimat Terbuka & Tertutup</h4>
-                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Membedakan mana pernyataan benar/salah dan mana kalimat terbuka.</p>
+                    <div onclick="openSubMateri(2)" class="soft-card rounded-3xl p-6 border-2 border-transparent hover:border-bright-pink transition cursor-pointer group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-2xl bg-pink-100 text-bright-pink font-extrabold font-display text-xl flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-inner">2</div>
+                        <h4 class="font-bold font-display text-lg text-slate-800 group-hover:text-bright-pink transition">Kalimat Terbuka & Tertutup</h4>
+                        <p class="text-xs text-slate-500 mt-2 font-medium leading-relaxed">Uji kebenaran pernyataan matematika & tebak variabel.</p>
                     </div>
 
-                    <!-- Step 3 -->
-                    <div onclick="openSubMateri(3)" class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-500 transition cursor-pointer shadow-sm hover:shadow-md group">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition">3</div>
-                        <h4 class="font-bold font-display text-slate-800 group-hover:text-brand-600 transition">Penyelesaian PLSV</h4>
-                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Sifat kesetaraan dengan simulasi timbangan digital interaktif.</p>
+                    <div onclick="openSubMateri(3)" class="soft-card rounded-3xl p-6 border-2 border-transparent hover:border-bright-teal transition cursor-pointer group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-bright-teal font-extrabold font-display text-xl flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-inner">3</div>
+                        <h4 class="font-bold font-display text-lg text-slate-800 group-hover:text-bright-teal transition">Penyelesaian & Timbangan</h4>
+                        <p class="text-xs text-slate-500 mt-2 font-medium leading-relaxed">Visualisasi interaktif sifat kesetaraan dengan timbangan beban.</p>
                     </div>
 
-                    <!-- Step 4 -->
-                    <div onclick="openSubMateri(4)" class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-500 transition cursor-pointer shadow-sm hover:shadow-md group">
-                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition">4</div>
-                        <h4 class="font-bold font-display text-slate-800 group-hover:text-brand-600 transition">Penerapan Sehari-hari</h4>
-                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Membuat model matematika dan menyelesaikan soal cerita nyata.</p>
+                    <div onclick="openSubMateri(4)" class="soft-card rounded-3xl p-6 border-2 border-transparent hover:border-bright-orange transition cursor-pointer group hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-bright-orange font-extrabold font-display text-xl flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-inner">4</div>
+                        <h4 class="font-bold font-display text-lg text-slate-800 group-hover:text-bright-orange transition">Penerapan Sehari-hari</h4>
+                        <p class="text-xs text-slate-500 mt-2 font-medium leading-relaxed">Penyelesaian soal cerita kontekstual belanja, umur, & geometri.</p>
                     </div>
                 </div>
             </div>
@@ -231,137 +241,115 @@
 
         <!-- TAB 2: TUJUAN PEMBELAJARAN & CP -->
         <section id="tab-tujuan" class="tab-content hidden space-y-8">
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+            <div class="soft-card rounded-3xl p-8 border-t-8 border-bright-purple shadow-sm">
                 <div class="max-w-3xl">
-                    <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider">Capaian & Tujuan</span>
-                    <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Target Pembelajaran Siswa</h2>
-                    <p class="text-slate-600 mt-2">Sesuai dengan panduan Kurikulum Merdeka Matematika SMP/MTs Kelas VIII.</p>
+                    <span class="px-4 py-1.5 rounded-full bg-purple-100 text-bright-purple text-xs font-black uppercase tracking-wider">Kurikulum Merdeka</span>
+                    <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Capaian & Tujuan Pembelajaran</h2>
+                    <p class="text-slate-600 font-medium text-sm mt-1">Panduan target kompetensi matematika siswa Kelas VIII SMP Negeri 1 Terusan Nunyai.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <!-- Capaian Pembelajaran -->
-                    <div class="bg-gradient-to-br from-slate-50 to-brand-50/30 p-6 rounded-2xl border border-slate-200">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-lg">
+                    <!-- CP Card -->
+                    <div class="bg-sky-50/80 p-6 rounded-3xl border-2 border-sky-100 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-bright-blue text-white flex items-center justify-center font-bold text-xl shadow-md">
                                 <i class="fa-solid fa-award"></i>
                             </div>
                             <h3 class="text-xl font-bold font-display text-slate-800">Capaian Pembelajaran (CP)</h3>
                         </div>
-                        <p class="text-slate-700 text-sm leading-relaxed">
-                            Di akhir fase D, peserta didik dapat memahami konsep persamaan linear satu variabel, memodelkan fenomena atau masalah dalam kehidupan sehari-hari ke dalam bentuk matematika, serta menyelesaikannya secara rasional dan sistematis.
+                        <p class="text-slate-700 text-sm leading-relaxed font-medium">
+                            Di akhir fase D, peserta didik dapat memahami konsep persamaan linear satu variabel, memodelkan fenomena atau masalah kontekstual ke dalam bentuk matematika, serta menyelesaikannya secara rasional, akurat, dan sistematis.
                         </p>
                     </div>
 
-                    <!-- Tujuan Pembelajaran -->
-                    <div class="bg-gradient-to-br from-slate-50 to-indigo-50/30 p-6 rounded-2xl border border-slate-200">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">
+                    <!-- TP Card -->
+                    <div class="bg-purple-50/80 p-6 rounded-3xl border-2 border-purple-100 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-bright-purple text-white flex items-center justify-center font-bold text-xl shadow-md">
                                 <i class="fa-solid fa-list-check"></i>
                             </div>
                             <h3 class="text-xl font-bold font-display text-slate-800">Tujuan Pembelajaran (TP)</h3>
                         </div>
-                        <ul class="space-y-2.5 text-sm text-slate-700">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                                <span>Menjelaskan konsep persamaan linear satu variabel dan unsur-unsurnya.</span>
+                        <ul class="space-y-2.5 text-sm font-medium text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-bright-teal text-base mt-0.5"></i>
+                                <span>Menjelaskan konsep PLSV dan mengidentifikasi unsur-unsurnya.</span>
                             </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                                <span>Membedakan antara kalimat terbuka dan kalimat tertutup.</span>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-bright-teal text-base mt-0.5"></i>
+                                <span>Membedakan antara kalimat terbuka dan kalimat tertutup secara tepat.</span>
                             </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                                <span>Menentukan nilai penyelesaian PLSV menggunakan operasi sifat kesetaraan.</span>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-bright-teal text-base mt-0.5"></i>
+                                <span>Menentukan nilai penyelesaian PLSV memanfaatkan sifat kesetaraan.</span>
                             </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                                <span>Menyelesaikan masalah kontekstual nyata yang berkaitan dengan PLSV.</span>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-bright-teal text-base mt-0.5"></i>
+                                <span>Menyelesaikan masalah nyata sehari-hari dengan pemodelan aljabar.</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
-
-                <!-- Peta Konsep Visual -->
-                <div class="mt-10 pt-8 border-t border-slate-100">
-                    <h3 class="text-xl font-bold font-display text-slate-800 mb-6 text-center">Peta Konsep Pembelajaran</h3>
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-                        <div class="p-4 bg-brand-600 text-white rounded-xl font-bold shadow-md w-full md:w-auto">
-                            Persamaan Linear Satu Variabel
-                        </div>
-                        <i class="fa-solid fa-arrow-down md:fa-arrow-right text-slate-400"></i>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full md:w-auto">
-                            <div class="p-3 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold border border-slate-200">
-                                Unsur: Variabel, Koefisien, Konstanta
-                            </div>
-                            <div class="p-3 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold border border-slate-200">
-                                Sifat Kesetaraan Operasi
-                            </div>
-                            <div class="p-3 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold border border-slate-200">
-                                Model Matematika Kontekstual
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 3: MATERI & SUB-MATERI -->
+        <!-- TAB 3: MATERI & SIMULASI TIMBANGAN -->
         <section id="tab-materi" class="tab-content hidden space-y-6">
             <!-- Sub-Materi Tabs Header -->
-            <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
-                <button onclick="openSubMateri(1)" id="btn-sub-1" class="sub-tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-brand-600 text-white shadow-sm transition">
+            <div class="flex flex-wrap gap-2 border-b-2 border-slate-200/80 pb-4">
+                <button onclick="openSubMateri(1)" id="btn-sub-1" class="sub-tab-btn px-5 py-3 rounded-2xl font-extrabold text-sm bg-bright-blue text-white shadow-md shadow-bright-blue/20 transition">
                     1. Konsep PLSV
                 </button>
-                <button onclick="openSubMateri(2)" id="btn-sub-2" class="sub-tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                <button onclick="openSubMateri(2)" id="btn-sub-2" class="sub-tab-btn px-5 py-3 rounded-2xl font-bold text-sm bg-white text-slate-600 hover:bg-slate-100 transition">
                     2. Kalimat Terbuka & Tertutup
                 </button>
-                <button onclick="openSubMateri(3)" id="btn-sub-3" class="sub-tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
-                    3. Penyelesaian & Simulasi Timbangan
+                <button onclick="openSubMateri(3)" id="btn-sub-3" class="sub-tab-btn px-5 py-3 rounded-2xl font-bold text-sm bg-white text-slate-600 hover:bg-slate-100 transition">
+                    3. Simulasi Timbangan Digital
                 </button>
-                <button onclick="openSubMateri(4)" id="btn-sub-4" class="sub-tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                <button onclick="openSubMateri(4)" id="btn-sub-4" class="sub-tab-btn px-5 py-3 rounded-2xl font-bold text-sm bg-white text-slate-600 hover:bg-slate-100 transition">
                     4. Penerapan Sehari-Hari
                 </button>
             </div>
 
             <!-- SUB-MATERI 1 -->
             <div id="sub-materi-1" class="sub-materi-content block space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Sub-Materi 1</span>
-                        <h2 class="text-2xl font-bold font-display text-slate-900 mt-1">Konsep Dasar Persamaan Linear Satu Variabel</h2>
-                        <p class="text-slate-600 text-sm mt-1">Mengenal istilah dan struktur pembentuk PLSV.</p>
+                        <span class="px-3 py-1 rounded-full bg-sky-100 text-bright-blue text-xs font-black uppercase">Sub-Materi 1</span>
+                        <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Konsep Dasar PLSV</h2>
+                        <p class="text-slate-600 text-sm font-medium mt-1">Mengenal istilah dan bentuk umum persamaan linear satu variabel.</p>
                     </div>
 
-                    <div class="p-5 bg-brand-50/50 rounded-2xl border border-brand-100 text-slate-800 text-sm leading-relaxed">
-                        <strong class="text-brand-800 font-semibold">Definisi:</strong> Persamaan Linear Satu Variabel (PLSV) adalah kalimat terbuka yang dihubungkan oleh tanda sama dengan (<strong class="text-brand-700 font-bold">=</strong>) dan hanya mempunyai <strong>satu variabel</strong> yang berpangkat paling tinggi <strong>satu</strong>.
+                    <div class="p-5 rounded-2xl bg-sky-50 border-2 border-sky-100 text-slate-800 text-sm font-medium leading-relaxed">
+                        <strong class="text-bright-blue font-bold">Definisi:</strong> Persamaan Linear Satu Variabel (PLSV) adalah kalimat terbuka yang dihubungkan oleh tanda sama dengan (<strong class="text-bright-blue font-bold text-base">=</strong>) dan hanya memiliki <strong>1 variabel</strong> dengan pangkat tertinggi <strong>1</strong>.
                     </div>
 
-                    <div class="bg-slate-900 text-white p-6 rounded-2xl text-center space-y-4">
-                        <span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Bentuk Umum PLSV</span>
-                        <div class="text-3xl sm:text-4xl font-extrabold font-display tracking-wider text-amber-400">
+                    <div class="rainbow-gradient-bg text-slate-950 p-8 rounded-3xl text-center space-y-3 shadow-lg">
+                        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-900 bg-white/60 px-3 py-1 rounded-full">Bentuk Umum PLSV</span>
+                        <div class="text-4xl sm:text-5xl font-black font-display tracking-wider drop-shadow-sm">
                             ax + b = c
                         </div>
-                        <p class="text-xs text-slate-300">dengan a ≠ 0 dan x adalah variabel</p>
+                        <p class="text-xs font-bold text-slate-800">dengan a ≠ 0 dan x adalah variabel/peubah</p>
                     </div>
 
                     <!-- Visual Unsur PLSV -->
-                    <div class="border border-slate-200 rounded-2xl p-6">
-                        <h4 class="font-bold text-slate-800 text-base mb-4">Bedah Unsur Bentuk Aljabar: <span class="text-brand-600">3x + 5 = 11</span></h4>
+                    <div class="border-2 border-slate-100 rounded-3xl p-6 bg-white space-y-4">
+                        <h4 class="font-bold text-slate-800 text-base">Bedah Unsur Aljabar: <span class="text-bright-purple font-black">4x + 6 = 22</span></h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                            <div class="p-4 rounded-xl bg-blue-50 border border-blue-200">
-                                <div class="text-2xl font-bold text-blue-600">3</div>
-                                <div class="text-xs font-bold text-slate-700 mt-1">Koefisien</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Angka pengali variabel</div>
+                            <div class="p-4 rounded-2xl bg-sky-50 border-2 border-sky-100">
+                                <div class="text-3xl font-black text-bright-blue font-display">4</div>
+                                <div class="text-xs font-bold text-slate-800 mt-1">Koefisien</div>
+                                <div class="text-[11px] text-slate-500 font-medium mt-0.5">Angka pengali variabel x</div>
                             </div>
-                            <div class="p-4 rounded-xl bg-purple-50 border border-purple-200">
-                                <div class="text-2xl font-bold text-purple-600">x</div>
-                                <div class="text-xs font-bold text-slate-700 mt-1">Variabel</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Simbol nilai yang belum diketahui</div>
+                            <div class="p-4 rounded-2xl bg-purple-50 border-2 border-purple-100">
+                                <div class="text-3xl font-black text-bright-purple font-display">x</div>
+                                <div class="text-xs font-bold text-slate-800 mt-1">Variabel</div>
+                                <div class="text-[11px] text-slate-500 font-medium mt-0.5">Simbol nilai yang dicari</div>
                             </div>
-                            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
-                                <div class="text-2xl font-bold text-amber-600">5 & 11</div>
-                                <div class="text-xs font-bold text-slate-700 mt-1">Konstanta</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Nilai tetap berupa angka</div>
+                            <div class="p-4 rounded-2xl bg-amber-50 border-2 border-amber-100">
+                                <div class="text-3xl font-black text-bright-orange font-display">6 & 22</div>
+                                <div class="text-xs font-bold text-slate-800 mt-1">Konstanta</div>
+                                <div class="text-[11px] text-slate-500 font-medium mt-0.5">Nilai angka tetap</div>
                             </div>
                         </div>
                     </div>
@@ -370,114 +358,116 @@
 
             <!-- SUB-MATERI 2 -->
             <div id="sub-materi-2" class="sub-materi-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Sub-Materi 2</span>
-                        <h2 class="text-2xl font-bold font-display text-slate-900 mt-1">Kalimat Terbuka dan Kalimat Tertutup</h2>
-                        <p class="text-slate-600 text-sm mt-1">Memahami konsep kebenaran suatu pernyataan matematika.</p>
+                        <span class="px-3 py-1 rounded-full bg-pink-100 text-bright-pink text-xs font-black uppercase">Sub-Materi 2</span>
+                        <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Kalimat Terbuka & Kalimat Tertutup</h2>
+                        <p class="text-slate-600 text-sm font-medium mt-1">Belajar membedakan kebenaran nilai pernyataan matematika.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Kalimat Tertutup -->
-                        <div class="p-6 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-3">
-                            <div class="inline-flex items-center gap-2 text-emerald-800 font-bold font-display text-lg">
-                                <i class="fa-solid fa-lock"></i> Kalimat Tertutup (Pernyataan)
+                        <div class="p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-100 space-y-3">
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold font-display text-xl">
+                                <i class="fa-solid fa-lock text-bright-teal"></i> Kalimat Tertutup
                             </div>
-                            <p class="text-xs text-slate-700 leading-relaxed">
-                                Kalimat yang sudah dapat ditentukan nilai kebenarannya (pasti <strong>BENAR</strong> saja atau pasti <strong>SALAH</strong> saja).
+                            <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                                Kalimat yang sudah pasti nilai kebenarannya (Pasti <strong class="text-emerald-700 font-bold">BENAR</strong> atau Pasti <strong class="text-rose-600 font-bold">SALAH</strong>).
                             </p>
-                            <div class="bg-white p-3 rounded-xl border border-emerald-200 text-xs space-y-2">
-                                <p><i class="fa-solid fa-check text-emerald-500 mr-1"></i> <strong>"2 + 3 = 5"</strong> (Pernyataan BENAR)</p>
-                                <p><i class="fa-solid fa-xmark text-rose-500 mr-1"></i> <strong>"Ibukota Indonesia adalah Surabaya"</strong> (Pernyataan SALAH)</p>
+                            <div class="bg-white p-3.5 rounded-2xl border border-emerald-200 text-xs font-semibold space-y-2">
+                                <p><i class="fa-solid fa-circle-check text-bright-teal mr-1"></i> "5 + 3 = 8" (Pernyataan BENAR)</p>
+                                <p><i class="fa-solid fa-circle-xmark text-bright-pink mr-1"></i> "Matahari terbit dari barat" (Pernyataan SALAH)</p>
                             </div>
                         </div>
 
                         <!-- Kalimat Terbuka -->
-                        <div class="p-6 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
-                            <div class="inline-flex items-center gap-2 text-amber-800 font-bold font-display text-lg">
-                                <i class="fa-solid fa-lock-open"></i> Kalimat Terbuka
+                        <div class="p-6 rounded-3xl bg-amber-50 border-2 border-amber-100 space-y-3">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold font-display text-xl">
+                                <i class="fa-solid fa-lock-open text-bright-orange"></i> Kalimat Terbuka
                             </div>
-                            <p class="text-xs text-slate-700 leading-relaxed">
-                                Kalimat yang <strong>belum dapat ditentukan nilai kebenarannya</strong> karena masih memuat variabel/peubah.
+                            <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                                Kalimat yang <strong>belum bisa ditentukan benar/salahnya</strong> karena masih memuat variabel.
                             </p>
-                            <div class="bg-white p-3 rounded-xl border border-amber-200 text-xs space-y-2">
-                                <p><i class="fa-solid fa-question text-amber-500 mr-1"></i> <strong>"x + 4 = 9"</strong> (Nilai kebenaran tergantung nilai x)</p>
-                                <p><i class="fa-solid fa-question text-amber-500 mr-1"></i> <strong>"Kota A terletak di Jawa Tengah"</strong></p>
+                            <div class="bg-white p-3.5 rounded-2xl border border-amber-200 text-xs font-semibold space-y-2">
+                                <p><i class="fa-solid fa-circle-question text-bright-orange mr-1"></i> "x + 4 = 10" (Nilai kebenaran tergantung x)</p>
+                                <p><i class="fa-solid fa-circle-question text-bright-orange mr-1"></i> "Kota A adalah ibukota provinsi Lampung"</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SUB-MATERI 3 (With Interactive Digital Scale Simulation) -->
+            <!-- SUB-MATERI 3 (Interactive Balance Scale Visualizer) -->
             <div id="sub-materi-3" class="sub-materi-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Sub-Materi 3</span>
-                        <h2 class="text-2xl font-bold font-display text-slate-900 mt-1">Penyelesaian PLSV & Simulasi Kesetaraan Timbangan</h2>
-                        <p class="text-slate-600 text-sm mt-1">Prinsip dasar: Perlakuan yang sama pada kedua ruas persamaan.</p>
+                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-bright-teal text-xs font-black uppercase">Sub-Materi 3</span>
+                        <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Simulasi Timbangan Digital PLSV</h2>
+                        <p class="text-slate-600 text-sm font-medium mt-1">Prinsip Kesetaraan: Apabila ruas kiri dikurangi/ditambah, ruas kanan wajib mendapat perlakuan sama!</p>
                     </div>
 
-                    <!-- Interactive Balance Scale Widget -->
-                    <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                    <!-- Interactive Scale Canvas Container -->
+                    <div class="bg-slate-900 text-white rounded-3xl p-6 shadow-2xl relative overflow-hidden border-4 border-bright-teal">
                         <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Lab Visual: Timbangan Kesetaraan</span>
-                            <span id="scale-status" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Setimbang (Sama Dengan)</span>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-bright-yellow flex items-center gap-2">
+                                <i class="fa-solid fa-scale-balanced"></i> Lab Visual Kesetaraan Timbangan
+                            </span>
+                            <span id="scale-status" class="px-3 py-1 rounded-full text-xs font-extrabold bg-bright-teal/20 text-bright-teal border border-bright-teal/30">Setimbang (=)</span>
                         </div>
 
-                        <!-- Scale Graphic Container -->
-                        <div class="relative h-48 flex flex-col items-center justify-center my-4">
+                        <!-- Graphic Scale Visualizer -->
+                        <div class="relative h-52 flex flex-col items-center justify-center my-4">
                             <!-- Beam -->
-                            <div id="scale-beam" class="scale-beam w-3/4 h-3 bg-slate-700 rounded-full relative flex justify-between items-center px-4">
+                            <div id="scale-beam" class="scale-beam w-3/4 h-3.5 bg-slate-700 rounded-full relative flex justify-between items-center px-4">
                                 <!-- Left Pan -->
-                                <div class="absolute -left-4 top-2 flex flex-col items-center">
-                                    <div class="w-0.5 h-12 bg-slate-500"></div>
-                                    <div class="w-32 h-12 bg-slate-800 border-2 border-brand-500 rounded-b-2xl flex items-center justify-center gap-1 p-1">
-                                        <div class="bg-brand-600 px-2 py-1 rounded text-xs font-bold text-white">x</div>
-                                        <div id="left-weights" class="flex flex-wrap gap-1 justify-center">
+                                <div class="absolute -left-6 top-2 flex flex-col items-center">
+                                    <div class="w-0.5 h-14 bg-slate-500"></div>
+                                    <div class="w-36 h-14 bg-slate-800 border-2 border-bright-blue rounded-b-2xl flex items-center justify-center gap-1.5 p-1 shadow-lg">
+                                        <div class="bg-bright-blue px-2.5 py-1 rounded-xl text-xs font-black text-white shadow">x</div>
+                                        <div id="left-weights" class="flex flex-wrap gap-1 justify-center max-w-[80px]">
                                             <!-- Dynamic weights -->
                                         </div>
                                     </div>
-                                    <span class="text-[10px] text-slate-400 mt-1">Ruas Kiri: <span id="left-val-text" class="text-white font-bold">x + 3</span></span>
+                                    <span class="text-[11px] text-slate-300 font-bold mt-1">Ruas Kiri: <span id="left-val-text" class="text-bright-yellow">x + 3</span></span>
                                 </div>
 
-                                <!-- Center Fulcrum Indicator -->
-                                <div class="w-4 h-4 bg-amber-400 rounded-full mx-auto"></div>
+                                <!-- Center Fulcrum Pivot -->
+                                <div class="w-6 h-6 bg-bright-yellow rounded-full mx-auto shadow-md border-2 border-slate-800"></div>
 
                                 <!-- Right Pan -->
-                                <div class="absolute -right-4 top-2 flex flex-col items-center">
-                                    <div class="w-0.5 h-12 bg-slate-500"></div>
-                                    <div class="w-32 h-12 bg-slate-800 border-2 border-indigo-500 rounded-b-2xl flex items-center justify-center gap-1 p-1">
-                                        <div id="right-weights" class="flex flex-wrap gap-1 justify-center">
+                                <div class="absolute -right-6 top-2 flex flex-col items-center">
+                                    <div class="w-0.5 h-14 bg-slate-500"></div>
+                                    <div class="w-36 h-14 bg-slate-800 border-2 border-bright-pink rounded-b-2xl flex items-center justify-center gap-1.5 p-1 shadow-lg">
+                                        <div id="right-weights" class="flex flex-wrap gap-1 justify-center max-w-[110px]">
                                             <!-- Dynamic weights -->
                                         </div>
                                     </div>
-                                    <span class="text-[10px] text-slate-400 mt-1">Ruas Kanan: <span id="right-val-text" class="text-white font-bold">7</span></span>
+                                    <span class="text-[11px] text-slate-300 font-bold mt-1">Ruas Kanan: <span id="right-val-text" class="text-bright-pink">7</span></span>
                                 </div>
                             </div>
 
-                            <!-- Stand Base -->
-                            <div class="w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[40px] border-b-slate-700 mt-12"></div>
-                            <div class="w-32 h-3 bg-slate-800 rounded-full"></div>
+                            <!-- Stand Support Base -->
+                            <div class="w-0 h-0 border-l-[25px] border-l-transparent border-r-[25px] border-r-transparent border-b-[45px] border-b-slate-700 mt-12"></div>
+                            <div class="w-36 h-3 bg-slate-800 rounded-full"></div>
                         </div>
 
-                        <!-- Scale Interactive Controls -->
+                        <!-- Scale Interactive Buttons -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800 text-xs">
                             <div class="space-y-2">
-                                <label class="text-slate-300 font-semibold block">Skenario Persamaan:</label>
-                                <select id="scale-preset" onchange="updateScalePreset()" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white">
-                                    <option value="1">x + 3 = 7 (Nilai x = 4)</option>
-                                    <option value="2">x + 5 = 9 (Nilai x = 4)</option>
-                                    <option value="3">x + 2 = 5 (Nilai x = 3)</option>
+                                <label class="text-slate-300 font-bold block">Pilih Skenario Soal:</label>
+                                <select id="scale-preset" onchange="updateScalePreset()" class="w-full bg-slate-800 border-2 border-slate-700 rounded-xl p-2.5 text-white font-bold">
+                                    <option value="1">x + 3 = 7 (Cari nilai x)</option>
+                                    <option value="2">x + 5 = 9 (Cari nilai x)</option>
+                                    <option value="3">x + 2 = 5 (Cari nilai x)</option>
                                 </select>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-slate-300 font-semibold block">Aksi Kurangi Beban (Kedua Ruas):</label>
+                                <label class="text-slate-300 font-bold block">Aksi Operasi Sifat Kesetaraan:</label>
                                 <div class="flex gap-2">
-                                    <button onclick="modifyScale(-1)" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2 px-3 rounded-lg transition">
-                                        - 1 dari kedua ruas
+                                    <button onclick="modifyScale(-1)" class="flex-1 bg-bright-pink hover:bg-rose-500 text-white font-extrabold py-2.5 px-3 rounded-xl transition shadow">
+                                        - 1 Dari Kedua Ruas
                                     </button>
-                                    <button onclick="resetScale()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-3 rounded-lg transition">
+                                    <button onclick="resetScale()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-xl transition">
                                         Reset
                                     </button>
                                 </div>
@@ -489,40 +479,38 @@
 
             <!-- SUB-MATERI 4 -->
             <div id="sub-materi-4" class="sub-materi-content hidden space-y-6">
-                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="soft-card rounded-3xl p-6 sm:p-8 space-y-6">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Sub-Materi 4</span>
-                        <h2 class="text-2xl font-bold font-display text-slate-900 mt-1">Penerapan PLSV dalam Kehidupan Sehari-hari</h2>
-                        <p class="text-slate-600 text-sm mt-1">Menyelesaikan soal cerita kontekstual dengan pemodelan matematika.</p>
+                        <span class="px-3 py-1 rounded-full bg-amber-100 text-bright-orange text-xs font-black uppercase">Sub-Materi 4</span>
+                        <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-2">Penerapan PLSV Sehari-Hari</h2>
+                        <p class="text-slate-600 text-sm font-medium mt-1">Pemodelan dan penyelesaian soal cerita nyata di sekolah & lingkungan.</p>
                     </div>
 
-                    <div class="space-y-4">
-                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                            <div class="flex items-center gap-2 font-bold text-slate-800 text-sm mb-2">
-                                <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center">1</span>
-                                Contoh Soal Pembelian Alat Tulis
+                    <div class="p-6 rounded-3xl bg-amber-50/60 border-2 border-amber-100 space-y-4">
+                        <div class="flex items-center gap-3 font-extrabold text-slate-800 text-base">
+                            <span class="w-8 h-8 rounded-xl bg-bright-orange text-white text-sm flex items-center justify-center font-display">1</span>
+                            Kasus Jajan di Kantin SMPN 1 Terusan Nunyai
+                        </div>
+                        <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                            Roni membeli 3 bungkus roti isi yang harganya sama. Ia membayar dengan uang pecahan Rp20.000,00 dan mendapat uang kembalian Rp5.000,00. Berapakah harga 1 bungkus roti tersebut?
+                        </p>
+
+                        <!-- Step-by-Step Breakdown -->
+                        <div class="space-y-2.5 text-xs font-medium">
+                            <div class="bg-white p-3.5 rounded-2xl border border-amber-200">
+                                <strong class="text-bright-purple font-bold">Langkah 1: Pemisalan Variabel</strong>
+                                <p class="text-slate-600 mt-0.5">Harga 1 bungkus roti = <strong class="text-bright-purple">x</strong></p>
                             </div>
-                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                                Budi membeli 3 buah buku tulis yang sama dan membayar dengan uang Rp20.000,00. Ia menerima kembalian sebesar Rp5.000,00. Berapakah harga 1 buah buku tulis tersebut?
-                            </p>
-                            
-                            <!-- Step-by-Step Accordion -->
-                            <div class="space-y-2 text-xs">
-                                <div class="bg-white p-3 rounded-xl border border-slate-200">
-                                    <strong class="text-brand-600">Langkah 1: Pemisalan Variabel</strong>
-                                    <p class="text-slate-600 mt-1">Misal harga 1 buah buku tulis = <strong class="text-purple-600">x</strong></p>
-                                </div>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200">
-                                    <strong class="text-brand-600">Langkah 2: Model Matematika</strong>
-                                    <p class="text-slate-600 mt-1">3x + 5.000 = 20.000 atau <strong>3x = 20.000 - 5.000</strong></p>
-                                </div>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200">
-                                    <strong class="text-brand-600">Langkah 3: Penyelesaian</strong>
-                                    <p class="text-slate-600 mt-1">3x = 15.000 &rarr; x = 15.000 / 3 &rarr; <strong class="text-emerald-600 font-bold">x = 5.000</strong></p>
-                                </div>
-                                <div class="p-3 bg-emerald-50 text-emerald-800 rounded-xl font-medium">
-                                    Jadi, harga 1 buah buku tulis adalah Rp5.000,00.
-                                </div>
+                            <div class="bg-white p-3.5 rounded-2xl border border-amber-200">
+                                <strong class="text-bright-blue font-bold">Langkah 2: Model Matematika</strong>
+                                <p class="text-slate-600 mt-0.5">3x + 5.000 = 20.000 &rarr; <strong>3x = 20.000 - 5.000</strong></p>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-2xl border border-amber-200">
+                                <strong class="text-bright-teal font-bold">Langkah 3: Penyelesaian</strong>
+                                <p class="text-slate-600 mt-0.5">3x = 15.000 &rarr; x = 15.000 / 3 &rarr; <strong class="text-emerald-600 font-bold text-sm">x = 5.000</strong></p>
+                            </div>
+                            <div class="p-3.5 bg-emerald-100 text-emerald-900 rounded-2xl font-bold text-xs">
+                                <i class="fa-solid fa-circle-check text-bright-teal mr-1"></i> Jadi, harga 1 bungkus roti isi adalah Rp5.000,00.
                             </div>
                         </div>
                     </div>
@@ -530,61 +518,61 @@
             </div>
         </section>
 
-        <!-- TAB 4: KUIS INTERAKTIF -->
+        <!-- TAB 4: LATIHAN SOAL & KUIS INTERAKTIF -->
         <section id="tab-kuis" class="tab-content hidden space-y-6">
-            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-                <!-- Quiz Header -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+            <div class="soft-card rounded-3xl p-6 sm:p-8 space-y-6 border-t-8 border-bright-teal">
+                <!-- Quiz Header Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-slate-100 pb-6">
                     <div>
-                        <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider">Uji Pemahaman</span>
-                        <h2 class="text-2xl font-bold font-display text-slate-900 mt-1">Kuis Formatif PLSV</h2>
+                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-bright-teal text-xs font-black uppercase">Uji Pemahaman</span>
+                        <h2 class="text-3xl font-extrabold font-display text-slate-900 mt-1">Kuis Formatif PLSV</h2>
                     </div>
-                    <div class="flex items-center gap-4 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                    <div class="flex items-center gap-4 bg-sky-50 p-3.5 rounded-2xl border-2 border-sky-100">
                         <div class="text-center">
-                            <span class="block text-[10px] uppercase font-bold text-slate-400">Skor Anda</span>
-                            <span id="quiz-score" class="text-xl font-bold text-brand-600">0</span>
+                            <span class="block text-[10px] uppercase font-black text-slate-400">Skor Anda</span>
+                            <span id="quiz-score" class="text-2xl font-black font-display text-bright-blue">0</span>
                         </div>
-                        <div class="h-8 w-px bg-slate-200"></div>
+                        <div class="h-8 w-0.5 bg-sky-200"></div>
                         <div class="text-center">
-                            <span class="block text-[10px] uppercase font-bold text-slate-400">Soal</span>
-                            <span id="quiz-progress" class="text-xl font-bold text-slate-800">1/5</span>
+                            <span class="block text-[10px] uppercase font-black text-slate-400">Kemajuan</span>
+                            <span id="quiz-progress" class="text-2xl font-black font-display text-slate-800">1/5</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quiz Card Body -->
-                <div id="quiz-body" class="mt-6 space-y-6">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                        <h3 id="quiz-question" class="text-base sm:text-lg font-bold text-slate-800">
-                            <!-- Question text injected dynamically -->
+                <!-- Quiz Question Active Screen -->
+                <div id="quiz-body" class="space-y-6">
+                    <div class="bg-sky-50/80 p-6 rounded-3xl border-2 border-sky-100">
+                        <h3 id="quiz-question" class="text-base sm:text-xl font-bold text-slate-800 leading-snug">
+                            <!-- Injected -->
                         </h3>
                     </div>
 
-                    <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <!-- Option buttons injected dynamically -->
+                    <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <!-- Injected -->
                     </div>
 
-                    <!-- Discussion / Explanation -->
-                    <div id="quiz-explanation" class="hidden p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 leading-relaxed">
+                    <!-- Discussion / Explanation Box -->
+                    <div id="quiz-explanation" class="hidden p-4 rounded-2xl bg-amber-50 border-2 border-amber-200 text-xs font-medium text-amber-900 leading-relaxed">
                         <!-- Dynamic explanation -->
                     </div>
 
-                    <div class="flex justify-end pt-4">
-                        <button id="next-quiz-btn" onclick="nextQuestion()" class="hidden px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition">
+                    <div class="flex justify-end pt-2">
+                        <button id="next-quiz-btn" onclick="nextQuestion()" class="hidden px-7 py-3.5 rounded-2xl bg-bright-blue hover:bg-sky-600 text-white font-extrabold text-sm shadow-md transition transform hover:scale-105">
                             Soal Berikutnya <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Quiz Completion Screen -->
+                <!-- Quiz Finish Screen -->
                 <div id="quiz-complete" class="hidden text-center py-10 space-y-4">
-                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                    <div class="w-24 h-24 bg-emerald-100 text-bright-teal rounded-full flex items-center justify-center text-5xl mx-auto shadow-inner border-4 border-white">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
-                    <h3 class="text-2xl font-bold font-display text-slate-800">Kuis Selesai!</h3>
-                    <p class="text-slate-600 text-sm">Skor akhir Anda: <strong id="final-score" class="text-brand-600 text-xl">0</strong> / 100</p>
-                    <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm hover:bg-brand-700 transition">
-                        Coba Lagi
+                    <h3 class="text-3xl font-black font-display text-slate-800">Kuis Selesai!</h3>
+                    <p class="text-slate-600 font-medium text-sm">Skor Akhir Anda: <strong id="final-score" class="text-bright-blue text-2xl font-black font-display">0</strong> / 100</p>
+                    <button onclick="resetQuiz()" class="px-8 py-3.5 rounded-2xl bg-bright-blue text-white font-extrabold text-sm hover:bg-sky-600 transition shadow-md">
+                        Coba Kuis Lagi
                     </button>
                 </div>
             </div>
@@ -592,61 +580,58 @@
 
         <!-- TAB 5: GAME SHOW TV "PLSV SUPER CHAMPION" -->
         <section id="tab-gameshow" class="tab-content hidden">
-            <div class="gameshow-gradient rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-indigo-900/50">
-                <!-- TV Show Header -->
-                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-indigo-800/80 pb-6 gap-4">
+            <div class="gameshow-bright-bg rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border-4 border-bright-yellow">
+                <!-- TV Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-center border-b border-purple-800/80 pb-6 gap-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-900 flex items-center justify-center font-extrabold text-2xl shadow-lg shadow-amber-400/20">
+                        <div class="w-14 h-14 rounded-2xl bg-bright-yellow text-slate-950 flex items-center justify-center font-black text-3xl shadow-lg shadow-bright-yellow/30">
                             <i class="fa-solid fa-tv"></i>
                         </div>
                         <div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400">
+                            <h2 class="text-2xl sm:text-3xl font-black font-display tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-bright-yellow via-amber-200 to-bright-orange">
                                 PLSV SUPER CHAMPION
                             </h2>
-                            <p class="text-xs text-indigo-300 font-medium">Acara Game Show Matematika TV SMPN 1 Terusan Nunyai</p>
+                            <p class="text-xs text-purple-200 font-bold">Acara Kuis Matematika SMPN 1 Terusan Nunyai</p>
                         </div>
                     </div>
 
-                    <!-- Score Badge & Timer -->
-                    <div class="flex items-center gap-3">
-                        <div class="bg-indigo-950/80 px-4 py-2 rounded-xl border border-indigo-700/50 text-center">
-                            <span class="text-[10px] text-indigo-400 font-bold uppercase block">Hadiah Utama</span>
-                            <span id="gs-prize" class="text-amber-400 font-extrabold font-display text-lg">Rp0</span>
-                        </div>
+                    <div class="bg-purple-950/90 px-5 py-2.5 rounded-2xl border-2 border-bright-yellow text-center shadow-lg">
+                        <span class="text-[10px] text-purple-300 font-black uppercase block">Hadiah Utama</span>
+                        <span id="gs-prize" class="text-bright-yellow font-black font-display text-xl">1.000.000 Poin</span>
                     </div>
                 </div>
 
-                <!-- Game Show Screen Content -->
+                <!-- GS Start Screen -->
                 <div id="gs-start-screen" class="text-center py-12 space-y-6">
-                    <div class="max-w-lg mx-auto space-y-4">
-                        <div class="inline-block p-4 rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-2">
-                            <i class="fa-solid fa-crown text-5xl animate-pulse"></i>
+                    <div class="max-w-md mx-auto space-y-4">
+                        <div class="inline-block p-5 rounded-full bg-bright-yellow/20 text-bright-yellow border-2 border-bright-yellow/40">
+                            <i class="fa-solid fa-crown text-6xl animate-bounce"></i>
                         </div>
-                        <h3 class="text-3xl font-extrabold font-display text-white">Selamat Datang di Panggung Juara!</h3>
-                        <p class="text-indigo-200 text-sm leading-relaxed">
-                            Jawab 5 pertanyaan berturut-turut untuk memenangkan hadiah poin tertinggi <strong>1.000.000 Poin Champion</strong>! Gunakan bantuan jika menemui kesulitan.
+                        <h3 class="text-3xl font-black font-display text-white">Panggung Juara Matematika!</h3>
+                        <p class="text-purple-200 text-sm font-medium leading-relaxed">
+                            Jawab 5 pertanyaan berturut-turut untuk meraih gelar **PLSV Super Champion** & kumpulkan **1.000.000 Poin**!
                         </p>
-                        <button onclick="startGameShow()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-lg shadow-xl shadow-amber-500/20 hover:scale-105 transition transform">
-                            <i class="fa-solid fa-play mr-2"></i> MULAI GAME SHOW NOW!
+                        <button onclick="startGameShow()" class="w-full sm:w-auto px-10 py-4 rounded-2xl bg-bright-yellow hover:bg-amber-300 text-slate-950 font-black text-xl shadow-2xl shadow-bright-yellow/50 transition transform hover:scale-105">
+                            <i class="fa-solid fa-play mr-2 text-bright-pink"></i> MULAI SEKARANG!
                         </button>
                     </div>
                 </div>
 
-                <!-- Game Active Screen -->
+                <!-- GS Active Screen -->
                 <div id="gs-active-screen" class="hidden my-8 space-y-6">
-                    <!-- Lifelines / Bantuan -->
+                    <!-- Lifelines -->
                     <div class="flex justify-center gap-3">
-                        <button id="ll-5050" onclick="useLifeline('5050')" class="px-4 py-2 rounded-xl bg-indigo-900/80 hover:bg-indigo-800 border border-indigo-600 text-amber-300 text-xs font-bold transition flex items-center gap-2">
+                        <button id="ll-5050" onclick="useLifeline('5050')" class="px-4 py-2.5 rounded-2xl bg-purple-900/90 hover:bg-purple-800 border-2 border-bright-cyan text-bright-cyan text-xs font-black transition flex items-center gap-2">
                             <i class="fa-solid fa-percent"></i> 50:50
                         </button>
-                        <button id="ll-guru" onclick="useLifeline('guru')" class="px-4 py-2 rounded-xl bg-indigo-900/80 hover:bg-indigo-800 border border-indigo-600 text-amber-300 text-xs font-bold transition flex items-center gap-2">
+                        <button id="ll-guru" onclick="useLifeline('guru')" class="px-4 py-2.5 rounded-2xl bg-purple-900/90 hover:bg-purple-800 border-2 border-bright-yellow text-bright-yellow text-xs font-black transition flex items-center gap-2">
                             <i class="fa-solid fa-user-tie"></i> Tanya Pak Hardiansyah
                         </button>
                     </div>
 
-                    <!-- Question Container (TV Style) -->
-                    <div class="relative bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 p-6 sm:p-8 rounded-2xl border-2 border-amber-400/40 text-center shadow-2xl">
-                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-2" id="gs-question-num">Pertanyaan 1</span>
+                    <!-- TV Screen Question Box -->
+                    <div class="relative bg-gradient-to-r from-purple-950 via-slate-900 to-purple-950 p-6 sm:p-8 rounded-3xl border-4 border-bright-yellow/60 text-center shadow-2xl">
+                        <span class="text-xs font-extrabold text-bright-cyan uppercase tracking-widest block mb-2" id="gs-question-num">Pertanyaan 1</span>
                         <h3 id="gs-question-text" class="text-lg sm:text-2xl font-bold font-display text-white">
                             <!-- Injected -->
                         </h3>
@@ -654,36 +639,36 @@
 
                     <!-- Options Grid (A, B, C, D) -->
                     <div id="gs-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Injected dynamically -->
+                        <!-- Injected -->
                     </div>
                 </div>
 
-                <!-- Lifeline Modal Overlay -->
-                <div id="gs-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                    <div class="bg-indigo-950 border-2 border-amber-400 rounded-3xl p-6 max-w-md w-full text-center space-y-4">
-                        <div class="w-12 h-12 bg-amber-400 text-slate-900 rounded-2xl flex items-center justify-center font-bold text-2xl mx-auto">
+                <!-- Lifeline Modal -->
+                <div id="gs-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+                    <div class="bg-purple-950 border-4 border-bright-yellow rounded-3xl p-6 max-w-md w-full text-center space-y-4 shadow-2xl">
+                        <div class="w-14 h-14 bg-bright-yellow text-slate-950 rounded-2xl flex items-center justify-center font-black text-3xl mx-auto">
                             <i class="fa-solid fa-lightbulb"></i>
                         </div>
-                        <h4 id="gs-modal-title" class="text-xl font-bold text-amber-400 font-display">Bantuan Pak Hardiansyah</h4>
-                        <p id="gs-modal-text" class="text-sm text-indigo-200">
-                            <!-- Clue text -->
+                        <h4 id="gs-modal-title" class="text-xl font-black text-bright-yellow font-display">Bantuan Guru</h4>
+                        <p id="gs-modal-text" class="text-sm font-medium text-purple-200 leading-relaxed">
+                            <!-- Clue -->
                         </p>
-                        <button onclick="closeLifelineModal()" class="px-6 py-2.5 rounded-xl bg-amber-400 text-slate-950 font-bold text-sm">
-                            Paham, Terima Kasih!
+                        <button onclick="closeLifelineModal()" class="px-7 py-3 rounded-2xl bg-bright-yellow text-slate-950 font-black text-sm hover:bg-amber-300">
+                            Mengerti, Terima Kasih!
                         </button>
                     </div>
                 </div>
 
-                <!-- Win / Game Over Screen -->
+                <!-- Result Screen -->
                 <div id="gs-result-screen" class="hidden text-center py-10 space-y-6">
-                    <div id="gs-result-icon" class="text-6xl text-amber-400">
+                    <div id="gs-result-icon" class="text-7xl text-bright-yellow">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
-                    <h3 id="gs-result-title" class="text-3xl font-black font-display text-white">SELEBRASI CHAMPION!</h3>
-                    <p id="gs-result-desc" class="text-indigo-200 text-base max-w-md mx-auto">
-                        Selamat! Anda berhasil menjawab semua pertanyaan dan membawa pulang hadiah utama!
+                    <h3 id="gs-result-title" class="text-4xl font-black font-display text-white">SELEBRASI CHAMPION!</h3>
+                    <p id="gs-result-desc" class="text-purple-200 text-base max-w-md mx-auto font-medium">
+                        <!-- Result -->
                     </p>
-                    <button onclick="startGameShow()" class="px-8 py-3.5 rounded-xl bg-amber-400 text-slate-950 font-bold text-sm hover:bg-amber-300 transition">
+                    <button onclick="startGameShow()" class="px-8 py-3.5 rounded-2xl bg-bright-yellow text-slate-950 font-black text-sm hover:bg-amber-300 transition shadow-xl">
                         Main Lagi
                     </button>
                 </div>
@@ -692,16 +677,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+    <footer class="bg-white/90 border-t-2 border-slate-200 mt-12 py-6 text-center text-xs font-semibold text-slate-500">
         <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p>&copy; 2026 SMP Negeri 1 Terusan Nunyai. Media Pembelajaran Matematika PLSV.</p>
-            <p>Dikembangkan untuk mendukung Pembelajaran Interaktif Siswa Kelas VIII &bull; Guru Pengampu: <strong>Hardiansyah, S.Pd.</strong></p>
+            <p>&copy; 2026 SMP Negeri 1 Terusan Nunyai &bull; Portal Pembelajaran Matematika Interaktif Kelas VIII</p>
+            <p>Guru Pengampu: <strong class="text-bright-purple font-bold">Hardiansyah, S.Pd.</strong></p>
         </div>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
-        /* WEB AUDIO API FOR SOUND EFFECTS */
+        /* WEB AUDIO API SYNTHESIZER FOR SOUND EFFECTS */
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx;
 
@@ -741,7 +725,7 @@
                 osc.stop(now + 0.4);
             } else if (type === 'click') {
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(400, now);
+                osc.frequency.setValueAtTime(450, now);
                 gain.gain.setValueAtTime(0.1, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
                 osc.start(now);
@@ -749,27 +733,27 @@
             }
         }
 
-        /* NAVIGATION MANAGEMENT */
+        /* NAVIGATION LOGIC */
         function switchTab(tabId) {
             playSound('click');
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
 
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-brand-600', 'bg-brand-50', 'font-semibold');
-                btn.classList.add('text-slate-600');
+                btn.classList.remove('text-white', 'bg-bright-blue', 'shadow-md');
+                btn.classList.add('text-slate-700');
             });
 
             const activeBtn = document.getElementById(`nav-${tabId}`);
             if (activeBtn && tabId !== 'gameshow') {
-                activeBtn.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                activeBtn.classList.remove('text-slate-700');
+                activeBtn.classList.add('text-white', 'bg-bright-blue', 'shadow-md');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
         function openSubMateri(index) {
@@ -778,35 +762,30 @@
             document.getElementById(`sub-materi-${index}`).classList.remove('hidden');
 
             document.querySelectorAll('.sub-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
+                btn.classList.remove('bg-bright-blue', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-slate-600');
             });
 
             const activeSubBtn = document.getElementById(`btn-sub-${index}`);
             if (activeSubBtn) {
-                activeSubBtn.classList.remove('bg-slate-100', 'text-slate-600');
-                activeSubBtn.classList.add('bg-brand-600', 'text-white');
+                activeSubBtn.classList.remove('bg-white', 'text-slate-600');
+                activeSubBtn.classList.add('bg-bright-blue', 'text-white', 'shadow-md');
             }
         }
 
-        /* DIGITAL SCALE SIMULATOR LOGIC */
+        /* SIMULATION SCALE LOGIC */
         let currentPreset = 1;
-        let scaleState = { leftWeights: 3, rightWeights: 7, targetX: 4 };
+        let scaleState = { leftWeights: 3, rightWeights: 7 };
 
         function updateScalePreset() {
-            const val = document.getElementById('scale-preset').value;
-            currentPreset = parseInt(val);
+            currentPreset = parseInt(document.getElementById('scale-preset').value);
             resetScale();
         }
 
         function resetScale() {
-            if (currentPreset === 1) {
-                scaleState = { leftWeights: 3, rightWeights: 7, targetX: 4 };
-            } else if (currentPreset === 2) {
-                scaleState = { leftWeights: 5, rightWeights: 9, targetX: 4 };
-            } else if (currentPreset === 3) {
-                scaleState = { leftWeights: 2, rightWeights: 5, targetX: 3 };
-            }
+            if (currentPreset === 1) scaleState = { leftWeights: 3, rightWeights: 7 };
+            if (currentPreset === 2) scaleState = { leftWeights: 5, rightWeights: 9 };
+            if (currentPreset === 3) scaleState = { leftWeights: 2, rightWeights: 5 };
             renderScale();
         }
 
@@ -826,62 +805,58 @@
             rightContainer.innerHTML = '';
 
             for (let i = 0; i < scaleState.leftWeights; i++) {
-                leftContainer.innerHTML += `<div class="w-3 h-3 bg-amber-400 rounded-full"></div>`;
+                leftContainer.innerHTML += `<div class="w-3.5 h-3.5 bg-bright-yellow rounded-full shadow-sm"></div>`;
             }
-
             for (let i = 0; i < scaleState.rightWeights; i++) {
-                rightContainer.innerHTML += `<div class="w-3 h-3 bg-indigo-400 rounded-full"></div>`;
+                rightContainer.innerHTML += `<div class="w-3.5 h-3.5 bg-bright-pink rounded-full shadow-sm"></div>`;
             }
 
             document.getElementById('left-val-text').innerText = scaleState.leftWeights > 0 ? `x + ${scaleState.leftWeights}` : `x`;
             document.getElementById('right-val-text').innerText = `${scaleState.rightWeights}`;
 
-            const beam = document.getElementById('scale-beam');
             const status = document.getElementById('scale-status');
 
             if (scaleState.leftWeights === 0) {
-                beam.style.transform = 'rotate(0deg)';
                 status.innerText = `Terpecahkan! x = ${scaleState.rightWeights}`;
-                status.className = "px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30";
-                confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
+                status.className = "px-3 py-1 rounded-full text-xs font-black bg-bright-yellow/20 text-bright-yellow border border-bright-yellow/40";
+                confetti({ particleCount: 40, spread: 60, origin: { y: 0.8 } });
             } else {
-                beam.style.transform = 'rotate(0deg)';
-                status.innerText = 'Setimbang (Sama Dengan)';
-                status.className = "px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                status.innerText = 'Setimbang (=)';
+                status.className = "px-3 py-1 rounded-full text-xs font-extrabold bg-bright-teal/20 text-bright-teal border border-bright-teal/30";
             }
         }
 
-        /* FORMATIVE QUIZ DATA & LOGIC */
+        /* QUIZ ENGINE */
         const quizData = [
             {
-                question: "Manakah di antara bentuk berikut yang merupakan Persamaan Linear Satu Variabel?",
-                options: ["x + y = 10", "2x + 5 = 15", "x² - 4 = 0", "3x + 2y = z"],
+                question: "Manakah bentuk yang merupakan Persamaan Linear Satu Variabel (PLSV)?",
+                options: ["2x + y = 10", "3x + 6 = 18", "x² - 9 = 0", "2a + 3b = c"],
                 answer: 1,
-                explanation: "2x + 5 = 15 memiliki 1 variabel (x) berpangkat paling tinggi 1, dan dihubungkan oleh tanda sama dengan (=)."
+                explanation: "3x + 6 = 18 hanya memiliki 1 variabel (x) berpangkat 1 dan dihubungkan oleh tanda (=)."
             },
             {
-                question: "Manakah yang merupakan contoh Kalimat Terbuka?",
-                options: ["3 + 4 = 7", "Ibukota Indonesia adalah Jakarta", "p + 7 = 12", "5 dikali 2 adalah 10"],
+                question: "Manakah yang tergolong Kalimat Terbuka?",
+                options: ["4 + 5 = 9", "Surabaya adalah ibukota Jawa Timur", "y - 3 = 10", "10 dibagi 2 adalah 5"],
                 answer: 2,
-                explanation: "p + 7 = 12 adalah kalimat terbuka karena nilai kebenarannya belum pasti, tergantung nilai variabel p."
+                explanation: "y - 3 = 10 belum pasti kebenarannya karena nilai variabel y belum ditentukan."
             },
             {
-                question: "Penyelesaian dari persamaan x - 8 = 12 adalah...",
-                options: ["x = 4", "x = 16", "x = 20", "x = 9"],
-                answer: 2,
-                explanation: "Tambahkan kedua ruas dengan 8: x = 12 + 8 -> x = 20."
+                question: "Penyelesaian dari x - 7 = 15 adalah...",
+                options: ["x = 8", "x = 22", "x = 105", "x = 21"],
+                answer: 1,
+                explanation: "Tambahkan 7 di kedua ruas: x = 15 + 7 -> x = 22."
             },
             {
-                question: "Nilai x yang memenuhi persamaan 3x + 6 = 21 adalah...",
-                options: ["5", "6", "7", "8"],
+                question: "Nilai x yang memenuhi 4x + 8 = 24 adalah...",
+                options: ["4", "5", "6", "7"],
                 answer: 0,
-                explanation: "3x = 21 - 6 -> 3x = 15 -> x = 5."
+                explanation: "4x = 24 - 8 -> 4x = 16 -> x = 4."
             },
             {
-                question: "Jumlah dua bilangan adalah 25. Jika bilangan pertama adalah x dan bilangan kedua 10, maka model matematikanya adalah...",
-                options: ["x - 10 = 25", "x + 10 = 25", "10x = 25", "x / 10 = 25"],
+                question: "Jumlah dua bilangan adalah 30. Jika bilangan pertama x dan bilangan kedua 12, model matematikanya adalah...",
+                options: ["x - 12 = 30", "x + 12 = 30", "12x = 30", "x / 12 = 30"],
                 answer: 1,
-                explanation: "Kata 'jumlah' berarti operasi penjumlahan: x + 10 = 25."
+                explanation: "Kata 'jumlah' dimodelkan sebagai penjumlahan: x + 12 = 30."
             }
         ];
 
@@ -895,46 +870,45 @@
             document.getElementById('quiz-explanation').classList.add('hidden');
             document.getElementById('next-quiz-btn').classList.add('hidden');
 
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = '';
+            const container = document.getElementById('quiz-options');
+            container.innerHTML = '';
 
             data.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "p-4 rounded-xl border border-slate-200 text-left font-medium text-slate-700 hover:bg-slate-100 transition flex items-center justify-between text-xs sm:text-sm";
+                btn.className = "p-4 rounded-2xl border-2 border-slate-200 text-left font-bold text-slate-700 hover:border-bright-blue hover:bg-sky-50 transition flex items-center justify-between text-xs sm:text-sm bg-white";
                 btn.innerHTML = `<span>${String.fromCharCode(65 + idx)}. ${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
                 btn.onclick = () => checkQuizAnswer(idx, btn);
-                optionsContainer.appendChild(btn);
+                container.appendChild(btn);
             });
         }
 
         function checkQuizAnswer(selectedIdx, btnEl) {
             const data = quizData[currentQuizIndex];
-            const allButtons = document.getElementById('quiz-options').children;
+            const buttons = document.getElementById('quiz-options').children;
 
-            for (let btn of allButtons) {
-                btn.disabled = true;
-                btn.classList.add('opacity-60');
+            for (let b of buttons) {
+                b.disabled = true;
+                b.classList.add('opacity-60');
             }
 
             if (selectedIdx === data.answer) {
                 playSound('correct');
                 btnEl.classList.remove('opacity-60');
-                btnEl.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800');
+                btnEl.classList.add('bg-emerald-100', 'border-bright-teal', 'text-emerald-900');
                 currentQuizScore += 20;
                 document.getElementById('quiz-score').innerText = currentQuizScore;
-                confetti({ particleCount: 20, spread: 50, origin: { y: 0.7 } });
+                confetti({ particleCount: 30, spread: 60, origin: { y: 0.7 } });
             } else {
                 playSound('wrong');
                 btnEl.classList.remove('opacity-60');
-                btnEl.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-800');
-                allButtons[data.answer].classList.remove('opacity-60');
-                allButtons[data.answer].classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800');
+                btnEl.classList.add('bg-rose-100', 'border-bright-pink', 'text-rose-900');
+                buttons[data.answer].classList.remove('opacity-60');
+                buttons[data.answer].classList.add('bg-emerald-100', 'border-bright-teal', 'text-emerald-900');
             }
 
-            const expBox = document.getElementById('quiz-explanation');
-            expBox.innerHTML = `<strong>Pembahasan:</strong> ${data.explanation}`;
-            expBox.classList.remove('hidden');
-
+            const exp = document.getElementById('quiz-explanation');
+            exp.innerHTML = `<strong>Pembahasan:</strong> ${data.explanation}`;
+            exp.classList.remove('hidden');
             document.getElementById('next-quiz-btn').classList.remove('hidden');
         }
 
@@ -959,47 +933,17 @@
             renderQuizQuestion();
         }
 
-        /* GAME SHOW TV ENGINE "PLSV SUPER CHAMPION" */
+        /* GAME SHOW TV ENGINE */
         const gameshowQuestions = [
-            {
-                q: "Koefisien dari variabel x pada persamaan 4x - 9 = 15 adalah...",
-                opts: ["4", "-9", "15", "x"],
-                ans: 0,
-                prize: "100.000 Poin",
-                clue: "Koefisien adalah angka yang menempel di depan variabel x."
-            },
-            {
-                q: "Penyelesaian dari 2x + 4 = 12 adalah...",
-                opts: ["x = 2", "x = 4", "x = 6", "x = 8"],
-                ans: 1,
-                prize: "250.000 Poin",
-                clue: "2x = 12 - 4 -> 2x = 8. Maka x = 8 / 2."
-            },
-            {
-                q: "Jika 5x - 3 = 2x + 9, maka nilai x adalah...",
-                opts: ["x = 2", "x = 3", "x = 4", "x = 5"],
-                ans: 2,
-                prize: "500.000 Poin",
-                clue: "Kelompokkan variabel di ruas kiri: 5x - 2x = 9 + 3."
-            },
-            {
-                q: "Umur Ibu 3 kali umur Dini. Jika umur Dini adalah x dan jumlah umur mereka 48 tahun, model matematikanya adalah...",
-                opts: ["x + 3 = 48", "3x = 48", "4x = 48", "3x + 3 = 48"],
-                ans: 2,
-                prize: "750.000 Poin",
-                clue: "Umur Dini (x) + Umur Ibu (3x) = 48 -> x + 3x = 4x = 48."
-            },
-            {
-                q: "Sebuah persegi panjang memiliki panjang (x + 3) cm dan lebar 5 cm. Jika kelilingnya 28 cm, maka nilai x adalah...",
-                opts: ["6", "7", "8", "9"],
-                ans: 0,
-                prize: "1.000.000 Poin Champion",
-                clue: "K = 2(p + l) -> 28 = 2((x+3) + 5) -> 14 = x + 8."
-            }
+            { q: "Koefisien dari variabel x pada 5x - 12 = 18 adalah...", opts: ["5", "-12", "18", "x"], ans: 0, prize: "100.000 Poin", clue: "Koefisien berada tepat di depan variabel x." },
+            { q: "Penyelesaian dari 3x + 6 = 18 adalah...", opts: ["x = 2", "x = 4", "x = 6", "x = 8"], ans: 1, prize: "250.000 Poin", clue: "3x = 18 - 6 = 12 -> x = 12 / 3." },
+            { q: "Nilai x dari 6x - 4 = 2x + 12 adalah...", opts: ["x = 2", "x = 3", "x = 4", "x = 5"], ans: 2, prize: "500.000 Poin", clue: "6x - 2x = 12 + 4 -> 4x = 16." },
+            { q: "Umur Ibu 4 kali umur Roni (x). Jumlah umur mereka 50 tahun. Model matematikanya...", opts: ["x + 4 = 50", "4x = 50", "5x = 50", "4x + 4 = 50"], ans: 2, prize: "750.000 Poin", clue: "Roni (x) + Ibu (4x) = 5x = 50." },
+            { q: "Persegi panjang panjangnya (x + 2) cm, lebar 4 cm. Kelilingnya 24 cm. Nilai x adalah...", opts: ["6", "7", "8", "9"], ans: 0, prize: "1.000.000 Poin Champion", clue: "Keliling = 2(p + l) -> 24 = 2(x + 6) -> 12 = x + 6." }
         ];
 
         let gsIndex = 0;
-        let gsCurrentPrize = "Rp0";
+        let gsPrize = "0 Poin";
 
         function startGameShow() {
             playSound('click');
@@ -1018,12 +962,12 @@
 
             const grid = document.getElementById('gs-options-grid');
             grid.innerHTML = '';
-
             const letters = ['A', 'B', 'C', 'D'];
+
             data.opts.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "gs-opt-btn p-5 rounded-2xl bg-gradient-to-r from-indigo-900 to-indigo-950 border border-indigo-700/80 hover:border-amber-400 text-left font-bold text-slate-100 flex items-center space-x-3 transition transform hover:scale-[1.02]";
-                btn.innerHTML = `<span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-extrabold text-sm flex-shrink-0">${letters[idx]}</span> <span>${opt}</span>`;
+                btn.className = "gs-opt-btn p-5 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-950 border-2 border-purple-700 hover:border-bright-yellow text-left font-bold text-white flex items-center space-x-3 transition transform hover:scale-[1.02]";
+                btn.innerHTML = `<span class="w-8 h-8 rounded-xl bg-bright-yellow text-slate-950 flex items-center justify-center font-black text-sm flex-shrink-0">${letters[idx]}</span> <span>${opt}</span>`;
                 btn.onclick = () => selectGSAnswer(idx);
                 grid.appendChild(btn);
             });
@@ -1033,18 +977,14 @@
             const data = gameshowQuestions[gsIndex];
             if (idx === data.ans) {
                 playSound('correct');
-                confetti({ particleCount: 40, spread: 70, origin: { y: 0.6 } });
-                gsCurrentPrize = data.prize;
+                confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+                gsPrize = data.prize;
                 gsIndex++;
 
                 if (gsIndex < gameshowQuestions.length) {
-                    setTimeout(() => {
-                        renderGSQuestion();
-                    }, 1200);
+                    setTimeout(renderGSQuestion, 1200);
                 } else {
-                    setTimeout(() => {
-                        showGSResult(true);
-                    }, 1000);
+                    setTimeout(() => showGSResult(true), 1000);
                 }
             } else {
                 playSound('wrong');
@@ -1056,18 +996,18 @@
             playSound('click');
             const data = gameshowQuestions[gsIndex];
             if (type === 'guru') {
-                document.getElementById('gs-modal-title').innerText = "Saran Pak Hardiansyah, S.Pd.";
+                document.getElementById('gs-modal-title').innerText = "Petunjuk Pak Hardiansyah, S.Pd.";
                 document.getElementById('gs-modal-text').innerText = `"${data.clue}"`;
                 document.getElementById('gs-modal').classList.remove('hidden');
                 document.getElementById('ll-guru').disabled = true;
                 document.getElementById('ll-guru').classList.add('opacity-40');
             } else if (type === '5050') {
                 const buttons = document.querySelectorAll('.gs-opt-btn');
-                let removed = 0;
+                let rem = 0;
                 buttons.forEach((btn, i) => {
-                    if (i !== data.ans && removed < 2) {
+                    if (i !== data.ans && rem < 2) {
                         btn.style.visibility = 'hidden';
-                        removed++;
+                        rem++;
                     }
                 });
                 document.getElementById('ll-5050').disabled = true;
@@ -1086,12 +1026,12 @@
 
             if (won) {
                 playSound('correct');
-                confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 } });
-                document.getElementById('gs-result-title').innerText = "SELEBRASI CHAMPION!";
-                document.getElementById('gs-result-desc').innerHTML = `Luar Biasa! Anda memenangkan Hadiah Utama <strong class="text-amber-400 text-xl font-bold">${gsCurrentPrize}</strong>! Anda adalah Master PLSV SMPN 1 Terusan Nunyai.`;
+                confetti({ particleCount: 180, spread: 100, origin: { y: 0.5 } });
+                document.getElementById('gs-result-title').innerText = "JUARA SEJATI!";
+                document.getElementById('gs-result-desc').innerHTML = `Luar Biasa! Anda memenangkan Hadiah Utama <strong class="text-bright-yellow text-xl font-bold">${gsPrize}</strong>! Anda adalah Master PLSV SMPN 1 Terusan Nunyai.`;
             } else {
-                document.getElementById('gs-result-title').innerText = "SAYANG SEKALI!";
-                document.getElementById('gs-result-desc').innerText = `Jawaban kurang tepat. Jangan berkecil hati, pelajari kembali materi dan coba lagi!`;
+                document.getElementById('gs-result-title').innerText = "TETAP SEMANGAT!";
+                document.getElementById('gs-result-desc').innerText = `Jawaban kurang tepat. Pelajari lagi materi dan raih skor tertinggi di kesempatan berikutnya!`;
             }
         }
 
